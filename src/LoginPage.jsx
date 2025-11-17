@@ -15,12 +15,17 @@ const LoginPage = () => {
 
     setTimeout(() => {
       if (username.trim() && password.trim()) {
+        // Phân quyền role
+        const role = username.toLowerCase() === "admin" ? "admin" : "user";
+
+        // Lưu thông tin user + role vào localStorage
         localStorage.setItem(
           "user",
-          JSON.stringify({ username, role: "user" })
+          JSON.stringify({ username, role })
         );
-        alert("✅ Đăng nhập thành công!");
-        navigate("/");
+
+        alert(`✅ Đăng nhập thành công! Role: ${role}`);
+        navigate("/"); // về trang chính
       } else {
         alert("❌ Vui lòng nhập đầy đủ thông tin!");
       }
@@ -32,7 +37,6 @@ const LoginPage = () => {
     <div className="login-wrapper">
       <div className="login-card">
         <img src={anhlogo1} alt="Logo" className="login-logo" />
-
         <h2 className="login-title">Đăng nhập vào tài khoản</h2>
         <p className="login-subtitle">Sử dụng tài khoản của bạn để tiếp tục</p>
 
@@ -61,28 +65,6 @@ const LoginPage = () => {
             {loading ? "⏳ Đang xử lý..." : "Đăng nhập"}
           </button>
         </form>
-
-        <p className="register-link">
-          Bạn chưa có tài khoản? <a href="#">Tạo tài khoản mới</a>
-        </p>
-
-        <div className="social-login">
-          <button className="social-btn google">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png"
-              alt="Google"
-            />
-            <span>Đăng nhập Google</span>
-          </button>
-
-          <button className="social-btn facebook">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook"
-            />
-            <span>Facebook</span>
-          </button>
-        </div>
       </div>
     </div>
   );
