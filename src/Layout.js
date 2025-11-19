@@ -1,6 +1,6 @@
 import "./assets/css/main.css";
 import anhlogo from "./assets/images/hinh1.png";
-import backgroundImage from "./assets/images/hinh2.jpg"; // background local
+import backgroundImage from "./assets/images/hinh2.jpg";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -25,32 +25,45 @@ const Layout = () => {
       {/* Header */}
       <header className="header1">
         <div className="banner1">
+          {/* 🔵 LOGO BÊN TRÁI */}
+          <div className="logo1">
+            <img src={anhlogo} width="260" alt="Logo" />
+          </div>
+
+          {/* 🟣 MENU GIỮA */}
           <div id="topleft">
             <ul className="ul1">
-              <li><a href="/">TRANG CHỦ</a></li>
-              <li><a href="/trang1">EGOV</a></li>
-              <li><a href="/admin/products">QUẢN TRỊ</a></li>
+              <li>
+                <a href="/">TRANG CHỦ</a>
+              </li>
+              <li>
+                <a href="/trang1">EGOV</a>
+              </li>
+              <li>
+                <a href="/admin/products">QUẢN TRỊ</a>
+              </li>
             </ul>
           </div>
 
-          <div id="logo" className="logo1">
-            <img src={anhlogo} width="354" alt="Logo" />
-          </div>
-
+          {/* 🔴 USER/LOGIN BÊN PHẢI */}
           <div className="menubar-right">
             {user ? (
               <>
                 <span className="username">👤 {user.username}</span>
-                <button className="logout-btn" onClick={handleLogout}>Đăng xuất</button>
+                <button className="logout-btn" onClick={handleLogout}>
+                  Đăng xuất
+                </button>
               </>
             ) : (
-              <a href="/login" className="login-link">Đăng nhập</a>
+              <a href="/login" className="login-link">
+                Đăng nhập
+              </a>
             )}
           </div>
         </div>
       </header>
 
-      {/* Main content với background local */}
+      {/* Main content */}
       <main className="main-content">
         <div
           className="hero-bg"

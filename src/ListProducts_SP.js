@@ -24,7 +24,7 @@ const ListProducts_SP = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Danh sách sản phẩm</h2>
+      <h2>Discover our games</h2>
 
       <div
         style={{
@@ -83,7 +83,7 @@ const ListProducts_SP = () => {
               {p.title}
             </h4>
             <p style={{ color: "#e63946", fontWeight: "bold", margin: "0" }}>
-              ${p.price}
+              {p.price}
             </p>
             <small style={{ color: "#555" }}>
               ⭐ {p.rating_rate} | ({p.rating_count} đánh giá)

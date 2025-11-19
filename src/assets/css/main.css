@@ -16,12 +16,18 @@ body {
   background-color: #f7f7f7;
 }
 
+/* Sửa lại banner1 để chia làm 3 cột: logo - menu - user */
 .banner1 {
   height: 104px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 0 20px;
+}
+
+/* --- MENU GIỮA --- */
+#topleft {
+  justify-self: center;
 }
 
 #topleft ul {
@@ -38,14 +44,18 @@ body {
   font-weight: bold;
 }
 
+/* --- LOGO BÊN TRÁI --- */
 .logo1 {
-  text-align: center;
+  justify-self: start;
+  text-align: left; /* phòng trường hợp bị center */
 }
 
+/* --- USER / LOGIN BÊN PHẢI --- */
 .menubar-right {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-self: end;
 }
 
 .username {
