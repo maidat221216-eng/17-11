@@ -34,13 +34,13 @@ const Layout = () => {
           <div id="topleft">
             <ul className="ul1">
               <li>
-                <a href="/">TRANG CHỦ</a>
+                <a href="/">GAMES</a>
               </li>
               <li>
-                <a href="/trang1">EGOV</a>
+                <a href="/trang1">SHOP</a>
               </li>
               <li>
-                <a href="/admin/products">QUẢN TRỊ</a>
+                <a href="/trang2">SUPPORT</a>
               </li>
             </ul>
           </div>

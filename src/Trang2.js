@@ -1,82 +1,86 @@
 const Trang2 = () => {
-  const dssv = [
+  const socialLinks = [
     {
       id: 1,
-      hoten: "Nguyễn Văn An111",
-      lop: "K19",
-      email: "abc@1234.edu.vn",
-      anh: "https://htmediagroup.vn/wp-content/uploads/2022/11/Anh-58-copy-min.jpg.webp",
+      name: "Instagram",
+      url: "https://www.instagram.com/darkmyy_/",
+      img: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
+      color: "#E1306C", // màu đặc trưng Instagram
     },
     {
       id: 2,
-      hoten: "Trần Văn Bình",
-      lop: "K19",
-      email: "abc@1234.edu.vn",
-      anh: "https://htmediagroup.vn/wp-content/uploads/2022/08/Anh-cong-so-1-min.jpg.webp",
+      name: "TikTok",
+      url: "https://www.tiktok.com/@thdat.at",
+      img: "https://upload.wikimedia.org/wikipedia/en/6/69/TikTok_logo.png",
+      color: "#000000", // màu TikTok
     },
     {
       id: 3,
-      hoten: "Hà Thị Hiền",
-      lop: "K19",
-      email: "abc@cuong.edu.vn",
-      anh: "https://smilemedia.vn/wp-content/uploads/2022/08/Concept-chup-anh-ca-nhan-chan-dung.jpg",
-    },
-    {
-      id: 4,
-      hoten: "Nguyễn Kiều Hải My",
-      lop: "K19",
-      email: "abc@cuong.edu.vn",
-      anh: "https://studiochupanhdep.com//Upload/Images/Album/anh-beauty-01.jpg",
+      name: "Facebook",
+      url: "https://www.facebook.com/cc.thanhdat?locale=vi_VN",
+      img: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
+      color: "#1877F2", // màu Facebook
     },
   ];
 
   return (
     <div
-      style={{
-        minHeight: "100vh", // Chiếm toàn bộ chiều cao màn hình
-        display: "flex",
-        justifyContent: "center", // Căn giữa ngang
-
-        backgroundColor: "#f9f9f9", // Tuỳ chọn
-        padding: "20px",
-      }}
+      className="page-container"
+      style={{ paddingTop: "40px", paddingBottom: "40px" }}
     >
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap: "16px",
-          maxWidth: "1000px", // Giới hạn chiều rộng
-          width: "100%",
+          gap: "20px",
+          maxWidth: "1000px",
+          margin: "0 auto",
         }}
       >
-        {dssv.map((motsinhvien) => (
-          <div
-            key={motsinhvien.id}
+        {socialLinks.map((social) => (
+          <a
+            key={social.id}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
               height: "300px",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              padding: "10px",
+              border: `2px solid ${social.color}`,
+              borderRadius: "10px",
+              padding: "15px",
               textAlign: "center",
               backgroundColor: "#fff",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              textDecoration: "none",
+              color: social.color,
+              fontWeight: "bold",
+              transition: "transform 0.25s, box-shadow 0.25s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
             }}
           >
             <img
-              src={motsinhvien.anh}
-              alt={motsinhvien.hoten}
+              src={social.img}
+              alt={social.name}
               style={{
                 height: "140px",
-
-                objectFit: "cover",
+                objectFit: "contain",
                 borderRadius: "6px",
+                marginBottom: "10px",
               }}
             />
-            <h3 style={{ margin: "10px 0 5px" }}>{motsinhvien.hoten}</h3>
-            <p>{motsinhvien.lop}</p>
-            <p>{motsinhvien.email}</p>
-          </div>
+            <h3 style={{ margin: "0", fontSize: "20px" }}>{social.name}</h3>
+          </a>
         ))}
       </div>
     </div>
